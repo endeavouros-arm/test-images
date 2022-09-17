@@ -60,7 +60,7 @@ done
 
 case $PLAT in
     rpi) PLAT1="rpi"
-         PLAT2="rpi-aarch64";;
+         PLAT2="rpi";;
     odn) PLAT1="odroid-n2"
          PLAT2="odroid-n2";;
     pbp) PLAT1="pbp"
