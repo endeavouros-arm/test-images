@@ -47,12 +47,8 @@ _install_Pinebook_image() {
     local new
     local user_confirm
 
-    url=$(curl https://github.com/endeavouros-arm/test-images/releases | grep "image-pbp.*/enosLinuxARM-pbp-latest.tar.zst" | sed s'#^.*endeavouros-arm#endeavouros-arm#'g | sed s'#latest.tar.zst.*#latest.tar.zst#'g | head -n 1)
-    totalurl="https://github.com/"$url
-    wget $totalurl
-
-    tag=$(curl https://github.com/endeavouros-arm/test-images/releases | grep image-pbp |  sed s'#^.*image-pbp#image-pbp#'g | cut -c 1-24 | head -n 1)
-    wget https://github.com/endeavouros-arm/test-images/releases/download/$tag/enosLinuxARM-pbp.tar.zst
+    tag=$(curl https://github.com/endeavouros-arm/test-images/releases | grep image-pbp |  sed s'#^.*image-pbp#image-pbp#'g | cut -c 1-18 | head -n 1)
+    wget https://github.com/endeavouros-arm/test-images/releases/download/$tag/enosLinuxARM-pbp-latest.tar.zst
 
     if [[ "$FILESYSTEMTYPE" == "btrfs" ]]; then
         printf "\n\n${CYAN}Creating btrfs Subvolumes${NC}\n"
