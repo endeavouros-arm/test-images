@@ -53,8 +53,7 @@ rm -rf images
 # (exit root)
 exit           
 ```
-Connect the uSD or USB SSD enclosure to a Raspberry Pi 4b/400 device or Odroid N2/N2+ device.
+Connect the uSD or USB SSD enclosure to a Raspberry Pi 4b/400, Odroid N2/N2+ or Pinebook provided.
 Then boot up the device.
 Openbox should automatically start up and present the Calamares installer.
 Follow the instructions to complete the EndeavourOS install.
->>>>>>> images/pine-eos
