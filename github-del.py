@@ -25,7 +25,7 @@ def device_releases(dev: str, rel: list[str]) -> list[str]:
 def main():
     command = ["gh", "release", "list"]
     out = subprocess.check_output(command).decode("utf-8")
-    print(out)
+    # print(out)
     text = out.split("\n")
     releases = releases_parse(text)
     devices = ["rpi", "odroid", "pbp"]
