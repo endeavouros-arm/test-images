@@ -13,11 +13,11 @@ def releases_parse(text: list[str]) -> list[str]:
     return rel
 
 
-def device_releases(dev: str, rel: list[str]) -> list[str]:
+def device_releases(dev: str, rel: list[str], itype: str) -> list[str]:
     "function to filter parsed output by device"
     dev_rel = []
     for release in rel:
-        if release.startswith(f"image-{dev}-"):
+        if release.startswith(f"{itype}-{dev}-"):
             dev_rel.append(release)
     return dev_rel
 
@@ -29,11 +29,13 @@ def main():
     text = out.split("\n")
     releases = releases_parse(text)
     devices = ["rpi", "odroid", "pbp"]
-    for dev in devices:
-        for i, release in enumerate(device_releases(dev, releases)):
-            if i > 1:
-                cmd = ["gh", "release", "delete", release]
-                subprocess.call(cmd)
+    itypes = ["rootfs", "ddimg"]
+    for itype in itypes:
+        for dev in devices:
+            for i, release in enumerate(device_releases(dev, releases, itype)):
+                if i > 1:
+                    cmd = ["gh", "release", "delete", release]
+                    subprocess.call(cmd)
 
 
 if __name__ == "__main__":
