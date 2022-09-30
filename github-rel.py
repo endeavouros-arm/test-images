@@ -101,6 +101,7 @@ def create_release(img_name, rel_name, rel_note):
 
 def main():
     parse_function()
+    print(platform)
     plat = platform
     if platform == "odn":
         plat = "odroid-n2"
