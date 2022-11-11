@@ -257,6 +257,11 @@ _partition_format_mount() {
                           else
                              dialog_content="$base_dialog_content\n    Input improperly formatted. Try again."   
                           fi ;;
+            /dev/nvme*) if [[ ${#DEVICENAME} -eq 12 ]]; then
+                 finished=0
+              else
+                 dialog_content="$base_dialog_content\n    Input improperly formatted. Try again."   
+              fi ;;
          esac
       fi      
    done
@@ -288,7 +293,7 @@ _partition_format_mount() {
    printf "\n${CYAN}Formatting storage device $DEVICENAME...${NC}\n"
    printf "\n${CYAN}If \"/dev/sdx contains an existing file system Labelled XXXX\" or similar appears, Enter: y${NC}\n\n\n"
 
-   if [[ ${DEVICENAME:5:6} = "mmcblk" ]]
+   if [[ ${DEVICENAME:5:6} = "mmcblk" ]] || [[ ${DEVICENAME:5:4} = "nvme" ]]
    then
       DEVICENAME=$DEVICENAME"p"
    fi
@@ -361,7 +366,7 @@ Main() {
     CYAN='\033[0;36m'
     NC='\033[0m' # No Color
 
-    pacman -S --noconfirm --needed libnewt arch-install-scripts pv &>/dev/null # packages needed for install
+    pacman -S --noconfirm --needed libnewt arch-install-scripts pv wget parted &>/dev/null # packages needed for install
     _check_if_root
     _check_all_apps_closed
     _choose_device
