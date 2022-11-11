@@ -14,8 +14,8 @@ def parse_function():
     global itype
     global mod_rel
     parser = argparse.ArgumentParser(
-        description="Python script to upload EndeavourOS ARM images/rootfs to GitHub"
-    )
+        description=
+        "Python script to upload EndeavourOS ARM images/rootfs to GitHub")
     parser.add_argument(
         "--platform",
         "-p",
@@ -56,14 +56,17 @@ def releases_parse(text: list[str]) -> list[str]:
 def device_releases(dev: str, rel: list[str]) -> list[str]:
     "function to filter parsed output by device"
     dev_rel = []
+    print("List of older images")
     if itype == "ddimg":
         for release in rel:
             if release.startswith(f"ddimg-{dev}-"):
                 dev_rel.append(release)
+                print("    {release}")
     else:
         for release in rel:
             if release.startswith(f"rootfs-{dev}-"):
                 dev_rel.append(release)
+                print("    {release}")
     return dev_rel
 
 
@@ -118,7 +121,7 @@ def main():
     text = out.split("\n")
     releases = releases_parse(text)
     out = device_releases(plat, releases)
-    print(out)
+    # print(out)
     if not out:
         print("Image being created. Can take 10-20 minutes")
         create_release(img_name, rel_name, rel_note)

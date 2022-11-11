@@ -154,6 +154,7 @@ _install_OdroidN2_image() {
     if [[ "$FILESYSTEMTYPE" == "btrfs" ]]; then
         boot_options="rootflags=subvol=@ rootfstype=btrfs fsck.repair=no"
         new="setenv bootargs \"root=$uuidno $boot_options rootwait rw\""
+        sed -i "s#fsck.repair=yes ##" MP1/boot.ini
     else
         new="setenv bootargs \"root=$uuidno rootwait rw\""
     fi
@@ -258,10 +259,10 @@ _partition_format_mount() {
                              dialog_content="$base_dialog_content\n    Input improperly formatted. Try again."   
                           fi ;;
             /dev/nvme*) if [[ ${#DEVICENAME} -eq 12 ]]; then
-                 finished=0
-              else
-                 dialog_content="$base_dialog_content\n    Input improperly formatted. Try again."   
-              fi ;;
+                             finished=0
+                          else
+                             dialog_content="$base_dialog_content\n    Input improperly formatted. Try again."   
+                          fi ;;
          esac
       fi      
    done
