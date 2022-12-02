@@ -45,24 +45,24 @@ exit
 In your favorite browser, go to
 https://github.com/endeavouros-arm/test-images/releases
 
-look for the latest ddimg-rpi-20230115 or ddimg-odroid-n2-20230115 image
+look for the latest ddimg-rpi-20230115 or ddimg-odroid-n2-20230115 image <br />
 where 2023 is the year, 01 is the month, 15 is the day.
 
-When you find the desired image, click on it.
-Under Assets, click on
-enosLinuxARM-rpi-latest.img.xz and enosLinuxARM-rpi-latest.img.xz.sha512sum
+When you find the desired image, click on it. <br />
+Under Assets, click on <br />
+enosLinuxARM-rpi-latest.img.xz and enosLinuxARM-rpi-latest.img.xz.sha512sum <br />
 If you want Odroid N2 image, subsitute odroid-n2 for rpi.
 
-In a terminal window, cd into the  directory the images were downloaded to.
-$ sha512sum -c enosLinuxARM-rpi-latest..img.xz.sha512sum
+In a terminal window, cd into the  directory the images were downloaded to. <br />
+$ sha512sum -c enosLinuxARM-rpi-latest..img.xz.sha512sum <br />
 should show image check is OK
 
-Now use your favorite image burning app to transfer the img.xz file
+Now use your favorite image burning app to transfer the img.xz file <br />
 to a micro SD or USB SSD.  gnome-disk-utility is recommended.
 
 # Finish up
 
-Connect the uSD or USB SSD enclosure to a Raspberry Pi 4b/400, Odroid N2/N2+ or Pinebook provided.
+Connect the uSD or USB SSD enclosure to a Raspberry Pi 4b/400, Odroid N2/N2+ or Pinebook provided.<br />
 Then boot up the device.
-Openbox should automatically start up and present the Calamares installer.
+Openbox should automatically start up and present the Calamares installer. <br />
 Follow the instructions to complete the EndeavourOS install.
