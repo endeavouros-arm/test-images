@@ -40,7 +40,7 @@ rm -rf images
 # (exit root)
 exit           
 ```
-#Method 2
+# Method 2
 
 In your favorite browser, go to
 https://github.com/endeavouros-arm/test-images/releases
