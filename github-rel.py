@@ -14,8 +14,7 @@ def parse_function():
     global itype
     global mod_rel
     parser = argparse.ArgumentParser(
-        description=
-        "Python script to upload EndeavourOS ARM images/rootfs to GitHub")
+        description="Python script to upload EndeavourOS ARM images/rootfs to GitHub")
     parser.add_argument(
         "--platform",
         "-p",
@@ -61,12 +60,12 @@ def device_releases(dev: str, rel: list[str]) -> list[str]:
         for release in rel:
             if release.startswith(f"ddimg-{dev}-"):
                 dev_rel.append(release)
-                print("    {release}")
+                print(f"    {release}")
     else:
         for release in rel:
             if release.startswith(f"rootfs-{dev}-"):
                 dev_rel.append(release)
-                print("    {release}")
+                print(f"    {release}")
     return dev_rel
 
 
